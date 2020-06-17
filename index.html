@@ -1,1 +1,95 @@
-subdomain tookover by someone in the bugbounty community as a POC.
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Super Mario Emulator</title>
+  <meta name="description" content="Play online Super Mario Emulator in your browser">
+  <style>
+    html, body, .grid-container { height: 100%; margin: 0; }
+
+    .grid-container { 
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    grid-template-rows: 118px 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "header header" "sidebar main";
+    }
+
+    .header { 
+        grid-area: header;
+     }
+
+    .header img {
+            margin-top: 14px;
+            margin-left: 36px;
+    }
+
+    .main { grid-area: main;     height: calc(100vh - 118px); }
+
+    .sidebar { grid-area: sidebar; }
+
+
+    body {
+        overflow: hidden;
+        background: url(mario_bg.jpg) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        transition: all 1s ease-out;
+        opacity: 0;
+    }
+  </style>
+  <script>
+    function init() {
+        var isInIFrame = (window.location != window.parent.location); 
+        if(isInIFrame==true){
+            var elem = document.querySelector('body');
+            elem.parentNode.removeChild(elem);
+            window.location.href = "mario_loader.php";
+        }
+    }
+    window.onload = init;
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        window.frames[0].focus();
+        var elem = document.querySelector('body');
+        elem.style.opacity = '1';
+    });
+    
+  </script>
+</head>
+
+<body>
+    <div class="grid-container">
+    <div class="header">
+        <img alt="Super Mario Emulator Logo" src="super_mario_logo.png" />
+        <div style="position: absolute;top: 17px;left: 682px;">
+            <a href="http://online-emulators.com" target="_blank" title="SEGA Megadrive / SEGA Genesis / Super Nintendo Emulator"><img src="super-nintendo-sega-emulators_fr.png" title="SEGA Megadrive / SEGA Genesis Emulator" alt="SEGA Megadrive / SEGA Genesis Emulator"></a>
+        </div>
+    </div>
+    <div class="main">
+        <iframe src="game.php"  marginwidth="0" marginheight="0" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+    <div class="sidebar">
+        <p style="color:white; font-family: Verdana; text-align:center;">Advert</p>
+        <div class="adv">
+       <!-- mario.p -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9602208238522604"
+     data-ad-slot="8520703523"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+    </div>
+    </div>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-436053-24');
+    </script>
+
+</body>
+</html>
