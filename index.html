@@ -9,7 +9,7 @@
                         document.getElementById("emo").innerHTML = alert(this.responseText);
             }
          };
-         xhttp.open("PUT", "https://www.invisalignaccessories.com/api/v1/orders/R559707950/line_items/54851?line_item[variant_id]=1&line_item[quantity]=2", true);
+         xhttp.open("GET", "https://www.invisalignaccessories.com/api/v1/orders/R559707950", true);
          xhttp.withCredentials = true;
          xhttp.send();
          }
